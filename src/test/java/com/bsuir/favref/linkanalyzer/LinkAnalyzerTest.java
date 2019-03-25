@@ -24,4 +24,18 @@ public class LinkAnalyzerTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void getContentType_VIDEO() {
+        String url1 = "https://www.youtube.com/watch?v=_bL0s9JRVRk";
+        try {
+            ContentType type1 = LinkAnalyzer.getContentType(url1);
+
+            Assert.assertEquals(ContentType.VIDEO, type1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 }

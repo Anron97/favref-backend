@@ -12,11 +12,10 @@ public class LinkAnalyzer {
 
     public static ContentType getContentType(String url) throws IOException {
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-        connection.setAllowUserInteraction(false);
-        connection.setUseCaches(true);
         connection.setRequestMethod(REQUEST_METHOD);
         connection.connect();
         String contentType = connection.getContentType();
+        connection.disconnect();
         return parseContentType(contentType);
     }
 
